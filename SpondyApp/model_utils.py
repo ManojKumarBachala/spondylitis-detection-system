@@ -24,7 +24,19 @@ def get_model():
 
             import tensorflow as tf
 
-            _model = tf.keras.models.load_model(str(MODEL_PATH), compile=False)
+            _model = tf.keras.Sequential(
+                [
+                    tf.keras.Input(shape=(64, 64, 3)),
+                    tf.keras.layers.Conv2D(32, (3, 3), activation="relu", name="conv2d_1"),
+                    tf.keras.layers.MaxPooling2D((2, 2), name="max_pooling2d_1"),
+                    tf.keras.layers.Conv2D(32, (3, 3), activation="relu", name="conv2d_2"),
+                    tf.keras.layers.MaxPooling2D((2, 2), name="max_pooling2d_2"),
+                    tf.keras.layers.Flatten(name="flatten_1"),
+                    tf.keras.layers.Dense(256, activation="relu", name="dense_1"),
+                    tf.keras.layers.Dense(2, activation="softmax", name="dense_2"),
+                ]
+            )
+            _model.load_weights(str(MODEL_PATH))
             logger.info("Loaded CNN model from %s", MODEL_PATH.name)
 
     return _model

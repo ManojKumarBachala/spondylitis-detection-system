@@ -21,7 +21,7 @@ class PublicDemoTests(SimpleTestCase):
             {"image": SimpleUploadedFile("bad.png", b"not an image", content_type="image/png")},
         )
         self.assertEqual(response.status_code, 400)
-        self.assertContains(response, "not a readable image", status_code=400)
+        self.assertContains(response, "readable JPEG or PNG image", status_code=400)
         self.assertFalse((Path(__file__).parent / "static" / "test.jpg").exists())
 
     @patch("SpondyApp.views.predict_image")
