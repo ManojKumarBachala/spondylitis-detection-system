@@ -1,0 +1,14 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+db.sqlite3
+staticfiles/
+Dataset/
+testImages/
+SpondyApp/static/test.*
+*.log
+Thumbs.db
+model/*
+!model/cnn_weights.hdf5

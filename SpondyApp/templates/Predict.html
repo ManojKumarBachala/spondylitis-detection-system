@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Demo | Spondylitis Detection</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">SD<span>.</span></a>
+      <a class="topbar-link" href="/">Back to overview</a>
+    </header>
+    <section class="demo">
+      <p class="eyebrow">RESEARCH DEMONSTRATION</p>
+      <h1>Classify a spine X-ray</h1>
+      <p class="intro">Select a clear image to run it through the research model. Images are processed in memory and not saved.</p>
+      <form method="post" enctype="multipart/form-data" class="upload-form">
+        {% csrf_token %}
+        <label for="image">Spine X-ray image</label>
+        <input id="image" name="image" type="file" accept="image/jpeg,image/png" required>
+        <button class="button" type="submit">Run research model <span aria-hidden="true">→</span></button>
+      </form>
+      {% if message %}
+        <p class="feedback" role="alert">{{ message }}</p>
+      {% endif %}
+      {% if prediction %}
+        <section class="result" aria-live="polite">
+          <p class="eyebrow">MODEL OUTPUT</p>
+          <h2>{{ prediction }}</h2>
+          <p>Model score: {{ confidence }}%</p>
+        </section>
+      {% endif %}
+      <aside class="notice">
+        <strong>Not a diagnosis.</strong> This experimental academic model is not clinically validated. Do not use this result to make medical decisions or replace a clinician's assessment.
+      </aside>
+      <p class="privacy-note">Do not upload identifiable or real patient records. The server does not retain uploaded files.</p>
+    </section>
+  </main>
+</body>
+</html>

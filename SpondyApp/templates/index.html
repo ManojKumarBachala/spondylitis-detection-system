@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="M.Tech research prototype for CNN-based spine X-ray image classification.">
+  <title>Spondylitis Detection | Research Demo</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">SD<span>.</span></a>
+      <span class="topbar-note">M.TECH RESEARCH PROTOTYPE</span>
+    </header>
+    <section class="hero">
+      <p class="eyebrow">AI · MEDICAL IMAGING · RESEARCH</p>
+      <h1>AI-Based Detection and Classification of Spondylitis Using Deep Neural Networks</h1>
+      <p class="intro">An academic prototype that explores CNN-based classification of spine X-ray images.</p>
+      <a class="button" href="{% url 'predict' %}">Try the research demo <span aria-hidden="true">→</span></a>
+    </section>
+    <section class="notice" aria-labelledby="notice-title">
+      <h2 id="notice-title">Important research notice</h2>
+      <p>This prototype is not clinically validated and is not a medical diagnostic tool. Do not use its output to make health decisions. Consult a qualified clinician for medical advice.</p>
+      <p>Uploads are processed in memory and not retained. Do not upload identifiable or real patient records.</p>
+    </section>
+    <footer>Academic demonstration · CNN image classification</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: spondylitis-detection-system
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --no-input
+    startCommand: gunicorn Spondy.wsgi:application --bind 0.0.0.0:$PORT --workers 1 --threads 1 --timeout 120
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: DEBUG
+        value: "false"
+      - key: SECRET_KEY
+        generateValue: true

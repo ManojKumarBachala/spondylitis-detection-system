@@ -1,0 +1,46 @@
+:root {
+  color-scheme: light;
+  --ink: #17221d;
+  --paper: #f7f4ee;
+  --sage: #dce8de;
+  --green: #255c4c;
+  --orange: #ef6947;
+  --muted: #68736c;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.6 "Segoe UI", Arial, sans-serif; }
+a { color: inherit; text-decoration: none; }
+.shell { width: min(100% - 40px, 1000px); margin: 0 auto; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; }
+.brand { font-size: 1.5rem; font-weight: 800; letter-spacing: -.1em; }
+.brand span { color: var(--orange); }
+.topbar-note, .topbar-link, .eyebrow { font-family: Consolas, monospace; font-size: .75rem; letter-spacing: .08em; }
+.topbar-note, .topbar-link { color: var(--muted); }
+.hero { padding: clamp(56px, 10vw, 112px) clamp(20px, 8vw, 80px); background: var(--sage); }
+.eyebrow { margin: 0 0 18px; color: var(--green); }
+h1 { max-width: 800px; margin: 0; font-size: clamp(2.4rem, 6vw, 4.8rem); line-height: 1.05; letter-spacing: -.055em; }
+.intro { max-width: 660px; margin: 24px 0 30px; color: #48554d; font-size: 1.1rem; }
+.button { display: inline-flex; gap: 16px; align-items: center; border: 0; padding: 14px 20px; color: #fff; background: var(--green); font: inherit; font-weight: 700; cursor: pointer; }
+.button:hover, .button:focus-visible { background: #174338; }
+.notice { margin: 28px 0; padding: 20px 24px; border-left: 4px solid var(--orange); background: #fffaf0; }
+.notice h2, .notice p { margin-top: 0; }
+.notice p:last-child { margin-bottom: 0; }
+footer { padding: 30px 0; color: var(--muted); font: .75rem Consolas, monospace; }
+.demo { max-width: 720px; margin: 60px auto 100px; }
+.upload-form { display: grid; gap: 14px; padding: 24px; background: #fff; border: 1px solid #e3e1da; }
+.upload-form label { font-weight: 700; }
+.upload-form input { width: 100%; padding: 12px; border: 1px solid #b9c3bc; background: var(--paper); font: inherit; }
+.upload-form .button { justify-self: start; margin-top: 8px; }
+.feedback { margin: 20px 0; padding: 14px 18px; border-left: 4px solid var(--orange); background: #fffaf0; }
+.result { margin-top: 24px; padding: 24px; background: var(--sage); }
+.result h2 { margin: 0; font-size: 2rem; }
+.result p:last-child { margin-bottom: 0; }
+.privacy-note { color: var(--muted); font-size: .9rem; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+@media (max-width: 520px) {
+  .shell { width: min(100% - 28px, 1000px); }
+  .topbar-note { max-width: 190px; text-align: right; }
+  .demo { margin-top: 38px; }
+  .upload-form { padding: 18px; }
+}
